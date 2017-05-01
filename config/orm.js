@@ -16,7 +16,7 @@ let orm = {
       callback(response);
     });
   },
-  updateOne: function(valObj = {burger_name: "Standard Burger 01", devoured: false}, callback){
+  updateOne: function(valObj = {burger_name: "Standard Burger 001", devoured: false}, callback){
     let query = "UPDATE burgers SET ?";
     connection.query(query, valObj, (err, response) => {
       if (err) throw new Error("Updating item failed", err);
