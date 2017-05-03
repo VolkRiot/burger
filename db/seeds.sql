@@ -5,4 +5,4 @@ INSERT INTO burgers(burger_name, devoured)
         ('Krabbie Patty', false),
         ('Krusty Burger', false),
         ('McDowell''s Burger', false),
-        ('Cartman Burger', true)
+        ('Cartman Burger', true);
