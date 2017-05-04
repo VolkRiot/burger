@@ -9,7 +9,7 @@ burgers = {
   add: (table = 'burgers', keys = ['burger_name', 'devoured', 'date'], burg, cb) => {
     orm.insertOne(table, keys, burgObj, cb);
   },
-  update: (table = 'burger', burg, cond, cb) => {
+  update: (table = 'burgers', burg, cond, cb) => {
     orm.updateOne(table, burg, cond, cb);
   }
 };
