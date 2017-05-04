@@ -24,7 +24,7 @@ router.post('/api/new', (req, res) => {
   });
 });
 
-router.put('api/update', (req, res) =>{
+router.put('/:id', (req, res) =>{
   // TODO: Build burger object
   // This functionality will prove problematic later
   burgers.update('burgers', burgObj, cond, cb);
