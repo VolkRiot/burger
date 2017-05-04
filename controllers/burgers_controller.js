@@ -5,24 +5,21 @@ let router = express.Router();
 
 router.get('/', (req, res) => {
   burgers.all('burgers', (data) => {
-    let hhsObj = {
+    let burger = {
       burger: data
     };
-    res.render('index', hhsObj);
+    res.render('index', burger);
   });
 });
 
-router.post('api/new', (req, res) => {
+router.post('/api/new', (req, res) => {
   let burg = {
     burger_name: req.body.burger_name,
     devoured: req.body.devoured,
-    date: req.body.date
+    date: new Date()
   };
 
-  burgers.add('burgers', ['burger_name', 'devoured', 'date'], burg, () => {
-    // let hhsObj = {
-    //   burger: data
-    // };
+  burgers.add('burgers', ['burger_name', 'devoured', 'date'], burg, (data) => {
     res.redirect('/');
   });
 });
