@@ -23,6 +23,13 @@ let orm = {
       if (err) throw new Error('Updating item failed', err);
       callback(response);
     });
+  },
+  deleteOne: (table, condition, callback) => {
+    let query = "DELETE FROM ?? WHERE " + condition;
+    connection.query(query, table, (err, response) => {
+      if (err) throw new Error('Deleating the record failed', err);
+      callback(response);
+    });
   }
 };
 

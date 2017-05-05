@@ -13,6 +13,16 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/manager', (req, res) => {
+  burgers.all('burgers', (data) => {
+    let burger = {
+      logo: "assets/images/burger_icon.png",
+      burger: data
+    };
+    res.render('manager', burger);
+  });
+});
+
 router.post('/api/new', (req, res) => {
   let burg = {
     burger_name: req.body.burger_name,
@@ -35,6 +45,12 @@ router.put('/:id', (req, res) =>{
   burgers.update('burgers', burgObj, cond, (data) =>{
     res.redirect('/');
   });
+});
+
+router.delete('/delete/:id', (req, res) => {
+  burgers.delete('burgers', req.params.id, (data) => {
+    res.redirect('/manager');
+  })
 });
 
 module.exports = router;

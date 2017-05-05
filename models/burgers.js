@@ -11,6 +11,9 @@ burgers = {
   },
   update: (table = 'burgers', burg, cond, cb) => {
     orm.updateOne(table, burg, cond, cb);
+  },
+  delete: (table = 'burgers', cond, cb) =>{
+    orm.deleteOne(table, `id = ${cond}`, cb);
   }
 };
 
