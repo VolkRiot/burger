@@ -25,9 +25,15 @@ router.post('/api/new', (req, res) => {
 });
 
 router.put('/:id', (req, res) =>{
-  // TODO: Build burger object
-  // This functionality will prove problematic later
-  burgers.update('burgers', burgObj, cond, cb);
+
+  let cond = `id = ${req.params.id};`;
+  let burgObj = {
+    devoured: req.body.devoured
+  };
+
+  burgers.update('burgers', burgObj, cond, (data) =>{
+    res.redirect('/');
+  });
 });
 
 module.exports = router;

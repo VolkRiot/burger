@@ -17,13 +17,9 @@ let orm = {
     });
   },
   updateOne: (table, valObj, cond, callback) => {
-    let query = 'UPDATE ?? SET ? WHERE ?';
+    let query = 'UPDATE burgers SET ? WHERE ' + cond;
 
-    // valObj = {burger_name: 'Standard Burger 001', devoured: false, date: new Date()}
-    // TODO: This setup will probably backfire!! Not sure if can miz array/obj this way..
-    // Alternative concat + connection.escape("title")
-
-    connection.query(query, [table, valObj, cond], (err, response) => {
+    connection.query(query, valObj, (err, response) => {
       if (err) throw new Error('Updating item failed', err);
       callback(response);
     });
