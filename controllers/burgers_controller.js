@@ -6,6 +6,7 @@ let router = express.Router();
 router.get('/', (req, res) => {
   burgers.all('burgers', (data) => {
     let burger = {
+      logo: "assets/images/burger_icon.png",
       burger: data
     };
     res.render('index', burger);
