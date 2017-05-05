@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 router.post('/api/new', (req, res) => {
   let burg = {
     burger_name: req.body.burger_name,
-    devoured: req.body.devoured,
+    devoured: 0,
     date: new Date()
   };
 
